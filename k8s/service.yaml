@@ -1,0 +1,11 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: test-backend-svc
+  namespace: ai-agent-ns
+spec:
+  selector:
+    app: test-backend
+  ports:
+    - port: 80
+      targetPort: 8000

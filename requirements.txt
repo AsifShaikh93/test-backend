@@ -1,0 +1,10 @@
+fastapi
+uvicorn
+numpy
+faster-whisper
+langchain
+langchain-groq
+python-multipart
+pydantic
+websockets
+asyncio
