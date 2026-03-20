@@ -1,4 +1,5 @@
 from fastapi import FastAPI, WebSocket, WebSocketDisconnect, Form
+from prometheus_client import Counter, generate_latest
 from fastapi.middleware.cors import CORSMiddleware
 import json
 import numpy as np
@@ -13,6 +14,16 @@ from pydantic import BaseModel
 from faster_whisper import WhisperModel
 
 app = FastAPI()
+
+request_counter = Counter(
+    "http_requests_total",
+    "Total requests",
+    ["app"]
+)
+
+@app.get("/metrics")
+def metrics():
+    return Response(generate_latest(), media_type="text/plain")
 
 model = WhisperModel("base", device="cpu", compute_type="int8")
 
