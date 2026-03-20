@@ -3,7 +3,6 @@ from evaluator import evaluate_answer
 async def evaluate_interview_answers(answers):
     results = []
     for qa in answers:
-        # answers is now a list of dicts: {"question": "...", "answer": "..."}
         question = qa.get("question")
         answer = qa.get("answer", "")
 
