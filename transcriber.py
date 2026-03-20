@@ -3,7 +3,6 @@ import tempfile
 
 model = WhisperModel("base", device="cpu")
 
-
 async def transcribe_video(video):
 
     with tempfile.NamedTemporaryFile(delete=False, suffix=".webm") as temp:
